@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: rgb(16, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 0, 36, 1) 0%,
+    rgba(9, 95, 121, 1) 35%,
+    rgba(42, 58, 62, 1) 100%
+  );
+
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.todo-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 200px auto;
+  flex-direction: column;
+}
+
+form {
+  width: 450px;
+}
+#input {
+  width: 300px;
+  height: 3rem;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0 40px 20px 0;
+}
+
+#btn {
+  width: 100px;
+  border: none;
+  background-color: #ffe4c4;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 15px;
+
+  &:hover {
+    background-color: #ffd4a0;
+  }
+}
+
+.list-div {
+  width: 450px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2),
+    rgba(173, 216, 230, 0.2)
+  );
+  backdrop-filter: blur(10px);
+
+  color: white;
+  border-radius: 7px;
+}
+
+#list {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  
+  li{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .btns{
+      display: flex;
+      gap: 10px;
+    }
+  }
+}
+
+
+
+.done-btn {
+  display: inline-block;
+  background-color: greenyellow;
+  padding: 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.del-btn {
+  background-color: red;
+  padding: 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.done{
+  text-decoration: line-through;
+}
+
