@@ -17,7 +17,7 @@ input.addEventListener("keyup", function (e) {
 //   array = localStorage.getItem("tasks");
 // }
 function addTodo() {
-  if (input.value != "") {
+  if (input.value.trim() != "") {
     let newTodo = document.createElement("li");
     newTodo.textContent = input.value;
     newTodo.setAttribute("id", `todo-${listTodo.children.length + 1}`);
