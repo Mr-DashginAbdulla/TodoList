@@ -56,7 +56,8 @@ form {
 }
 
 .list-div {
-  width: 450px;
+  min-width: 450px;
+  width: 100%;
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0.2),
@@ -66,6 +67,9 @@ form {
 
   color: white;
   border-radius: 7px;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #list {
@@ -77,13 +81,18 @@ form {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
 
     .btns{
       display: flex;
       gap: 10px;
+      height: max-content;
     }
   }
+}
+
+li span {
+  max-width: 80%; 
 }
 
 
@@ -91,19 +100,40 @@ form {
 .done-btn {
   display: inline-block;
   background-color: greenyellow;
-  padding: 5px;
+  padding: 5px 10px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.done-btn:hover {
+  background-color: limegreen;
+}
+
+.done-btn:active {
+  background-color: darkgreen;
+  transform: scale(0.9);
 }
 
 .del-btn {
   background-color: red;
-  padding: 5px;
+  padding: 5px 10px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
 }
+
+.del-btn:hover {
+  background-color: darkred;
+}
+
+.del-btn:active {
+  background-color: black;
+  transform: scale(0.9);
+}
+
 
 .done{
   text-decoration: line-through;

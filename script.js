@@ -11,17 +11,15 @@ input.addEventListener("keyup", function (e) {
   e.preventDefault();
 });
 
-// let array = [];
-
-// if (localStorage.getItem("tasks") !== null) {
-//   array = localStorage.getItem("tasks");
-// }
 function addTodo() {
   if (input.value.trim() != "") {
     let newTodo = document.createElement("li");
-    newTodo.textContent = input.value;
     newTodo.setAttribute("id", `todo-${listTodo.children.length + 1}`);
     listTodo.appendChild(newTodo);
+
+    let spanText = document.createElement("span");
+    spanText.textContent = input.value;
+    newTodo.appendChild(spanText);
 
     let btns = document.createElement("div");
     btns.classList.add("btns");
@@ -40,30 +38,14 @@ function addTodo() {
 
     deleteBtn.addEventListener("click", function (e) {
       newTodo.remove();
+      alert(`${newTodo.id} removed`)
     });
 
     doneBtn.addEventListener("click", function () {
-      newTodo.classList.toggle("done");
+      spanText.classList.toggle("done");
     });
 
     input.value = "";
     input.focus();
   }
 }
-
-function saveToLocalStorage() {
-  localStorage.setItem("tasks", tasks.map(t => `${t.text}|${t.completed}`).join(";"));
-}
-
-function loadTodos() {
-  let storedTasks = localStorage.getItem("tasks");
-  if (storedTasks) {
-    tasks = storedTasks.split(";").map(item => {
-      let [text, completed] = item.split("|");
-      return { text, completed: completed === "true" };
-    });
-    tasks.forEach(createTodoElement);
-  }
-}
-
-// Local storage.
