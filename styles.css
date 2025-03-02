@@ -3,56 +3,73 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background: rgb(16, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(16, 0, 36, 1) 0%,
-    rgba(9, 95, 121, 1) 35%,
-    rgba(42, 58, 62, 1) 100%
-  );
 
+body {
+  background: linear-gradient(90deg, #0f1c2e, #223a5e);
   font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .container {
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
-  font-size: 2rem;
+  text-align: center;
 }
 
 .todo-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 200px auto;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 form {
-  width: 450px;
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  gap: 10px;
 }
+
 #input {
-  width: 300px;
+  flex: 1;
   height: 3rem;
+  min-width: 150px; /* Kiçik ekranlarda sıxılmasın */
+  max-width: 100%; /* Ekranın enini aşmasın */
+  width: auto; /* Mətnə uyğun genişlənsin */
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 20px;
-  margin: 0 40px 20px 0;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: width 0.2s ease-in-out;
+}
+
+
+#input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #btn {
-  width: 100px;
+  width: 120px;
   border: none;
-  background-color: #ffe4c4;
+  background: linear-gradient(135deg, #ffe4c4, #ffb07c);
   border-radius: 20px;
   cursor: pointer;
   padding: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-  &:hover {
-    background-color: #ffd4a0;
-  }
+#btn:hover {
+  background: linear-gradient(135deg, #ffd4a0, #ff9b5f);
+  transform: scale(1.05);
 }
 
 .list-div {
@@ -64,78 +81,124 @@ form {
     rgba(173, 216, 230, 0.2)
   );
   backdrop-filter: blur(10px);
-
   color: white;
-  border-radius: 7px;
-
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 #list {
   display: flex;
-  gap: 20px;
   flex-direction: column;
-  
-  li{
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  gap: 15px;
+}
 
-    .btns{
-      display: flex;
-      gap: 10px;
-      height: max-content;
-    }
-  }
+li {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 li span {
-  max-width: 80%; 
+  max-width: 80%;
 }
 
+.btns {
+  display: flex;
+  gap: 10px;
+  height: max-content;
+}
 
-
-.done-btn {
-  display: inline-block;
-  background-color: greenyellow;
-  padding: 5px 10px;
+.done-btn,
+.del-btn {
+  padding: 7px 12px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+.done-btn {
+  background: linear-gradient(135deg, #afff8d, #6bdf40);
 }
 
 .done-btn:hover {
-  background-color: limegreen;
-}
-
-.done-btn:active {
-  background-color: darkgreen;
-  transform: scale(0.9);
+  background: linear-gradient(135deg, #94ff6b, #53c72b);
+  transform: scale(1.05);
 }
 
 .del-btn {
-  background-color: red;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  background: linear-gradient(135deg, #ff6b6b, #e63946);
 }
 
 .del-btn:hover {
-  background-color: darkred;
+  background: linear-gradient(135deg, #ff4c4c, #c92630);
+  transform: scale(1.05);
 }
 
-.del-btn:active {
-  background-color: black;
-  transform: scale(0.9);
+.edit-btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  background: linear-gradient(135deg, #ffd700, #ffac00);
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  transform: scale(1.05);
+}
+.edit-btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  background: linear-gradient(135deg, #ffd700, #ffac00);
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  transform: scale(1.05);
 }
 
 
-.done{
+.done {
   text-decoration: line-through;
+  opacity: 0.7;
 }
 
+.edit-input {
+  font-size: 1rem;
+  padding: 5px;
+  border: 2px solid #ffcc5c;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.2s;
+  width: auto;
+}
+
+.edit-input:focus {
+  border-color: #ffa500;
+  background-color: #fff8dc;
+}
